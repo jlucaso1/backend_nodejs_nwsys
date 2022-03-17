@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-    dev:
+    dev_api:
         container_name: prova_nwsys_api
         image: nestjs-api-dev:1.0.0
         build:
