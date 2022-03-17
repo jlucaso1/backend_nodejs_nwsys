@@ -8,7 +8,7 @@ export const databaseProviders = [
       await createConnection({
         type: 'postgres',
         host: constants.POSTGRES_URL,
-        port: 5432,
+        port: constants.POSTGRES_PORT,
         username: constants.POSTGRES_USER,
         password: constants.POSTGRES_PASSWORD,
         database: constants.POSTGRES_DB,
