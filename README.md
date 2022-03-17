@@ -30,3 +30,4 @@ $ docker compose up
 - <p>CreateProduct (POST): http://localhost:3000/manager/product</p>
 - <p>UpdateProduct (PUT): http://localhost:3000/manager/product/:id</p>
 - <p>DeleteProduct (Delete): http://localhost:3000/manager/product/:id</p>
+- <p>Auth (Post) email: jlucaso@hotmail.com e senha: 123456 : http://localhost:3000/manager/auth</p>
