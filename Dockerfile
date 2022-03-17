@@ -1,13 +1,15 @@
-FROM node:16-alpine AS development
+FROM node:16-alpine
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY package.json yarn.lock ./
 
-RUN npm install glob rimraf
+RUN yarn install --frozen-lockfile
 
-RUN npm install --only=development
+# RUN npm install --only=development
 
 COPY . .
 
-RUN npm run build
+USER node
+
+CMD yarn start:dev

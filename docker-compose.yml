@@ -6,16 +6,15 @@ services:
         image: nestjs-api-dev:1.0.0
         build:
             context: .
-            target: development
             dockerfile: ./Dockerfile
-        command: npm run start:debug
+        command: yarn start:dev
         ports:
             - 3000:3000
         networks:
             - nestjs-network
         volumes:
             - .:/usr/src/app
-            - /usr/src/app/node_modules
+            - node_modules:/usr/src/app/node_modules
         restart: unless-stopped
         depends_on:
             - postgres
@@ -33,3 +32,6 @@ services:
 
 networks:
     nestjs-network:
+
+volumes:
+  node_modules: {}
