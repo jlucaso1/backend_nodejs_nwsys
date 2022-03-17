@@ -1,4 +1,4 @@
-import { constants } from 'src/config/constants';
+import { constants } from '../config/constants';
 import { createConnection } from 'typeorm';
 
 export const databaseProviders = [
