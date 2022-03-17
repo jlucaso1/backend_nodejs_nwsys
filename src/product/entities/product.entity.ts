@@ -9,8 +9,8 @@ export class Product {
   nome: string;
 
   @Column('float')
-  price: number
+  preco: number
 
-  @Column({type: 'varchar', length: 8000})
+  @Column({type: 'varchar', nullable: true})
   imagembase64: string;
 }

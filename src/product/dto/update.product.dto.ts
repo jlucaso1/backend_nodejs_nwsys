@@ -1,0 +1,24 @@
+import {
+  IsBase64,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
+
+export class UpdateProductDto {
+  @IsOptional()
+  @IsNotEmpty()
+  @IsString()
+  nome: string;
+
+  @IsOptional()
+  @IsNotEmpty()
+  @IsNumber({ maxDecimalPlaces: 2 })
+  preco: number;
+
+  @IsOptional()
+  @IsNotEmpty()
+  @IsString()
+  imagembase64: string;
+}
