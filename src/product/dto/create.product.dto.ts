@@ -1,15 +1,17 @@
-import { IsBase64, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsBase64, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateProductDto {
   @IsNotEmpty()
   @IsString()
   nome: string;
 
+  @IsOptional()
   @IsNotEmpty()
   @IsNumber({ maxDecimalPlaces: 2 })
   preco: number;
 
-  // @IsNotEmpty()
-  // @IsBase64()
-  // imagembase64: string;
+  @IsOptional()
+  @IsNotEmpty()
+  @IsString()
+  imagembase64: string;
 }

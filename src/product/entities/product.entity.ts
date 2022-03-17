@@ -5,12 +5,12 @@ export class Product {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({type: 'varchar', length: 500})
+  @Column({ type: 'varchar', length: 500 })
   nome: string;
 
-  @Column('float')
-  preco: number
+  @Column('float', { default: 0.0 })
+  preco: number;
 
-  @Column({type: 'varchar', nullable: true})
+  @Column({ type: 'varchar', nullable: true })
   imagembase64: string;
 }
