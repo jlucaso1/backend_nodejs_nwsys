@@ -4,4 +4,5 @@ export const constants = {
   POSTGRES_DB: 'prova_nwsys',
   POSTGRES_URL: 'prova_nwsys_postgres',
   POSTGRES_PORT: 5432,
+  JWT_SECRET: 'senhaforte',
 };
