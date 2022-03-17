@@ -14,16 +14,14 @@ export class UserService implements OnModuleInit {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  // Colocar um usuário no banco caso não exista
+  // Colocar um usuário padrão no banco de dados
   async onModuleInit() {
-    const users = await this.userRepository.find();
-    if (users.length === 0) {
-      await this.userRepository.insert({
-        email: 'jlucaso@hotmail.com',
-        password: '123456',
-      });
-    }
-    // console.log(await this.userRepository.find());
+    await this.userRepository.clear();
+    var user = await this.userRepository.create({
+      email: 'jlucaso@hotmail.com',
+      password: '123456',
+    });
+    await this.userRepository.save(user);
   }
 
   findOneByEmail(email: string): Promise<User> {
