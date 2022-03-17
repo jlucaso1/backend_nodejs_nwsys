@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+    dev:
+        container_name: prova_nwsys_api
+        image: nestjs-api-dev:1.0.0
+        build:
+            context: .
+            target: development
+            dockerfile: ./Dockerfile
+        command: npm run start:debug
+        ports:
+            - 3000:3000
+        networks:
+            - nestjs-network
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+        restart: unless-stopped
+
+    postgres:
+        container_name: prova_nwsys_postgres
+        image: postgres:14.2-alpine
+        environment:
+            POSTGRES_USER: jlucaso
+            POSTGRES_PASSWORD: senhaforte
+            POSTGRES_DB: prova_nwsys
+        networks:
+            - nestjs-network
+        restart: always
+
+networks:
+    nestjs-network:
